@@ -1,4 +1,4 @@
-package go_chat
+package main
 
 import (
 	"github.com/gorilla/websocket"
@@ -6,7 +6,6 @@ import (
 	"net/http"
 )
 
-// hi
 const (
 	socketBufferSize  = 1024
 	messageBufferSize = 256

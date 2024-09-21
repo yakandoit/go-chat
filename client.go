@@ -1,7 +1,9 @@
-package go_chat
+package main
 
-//comment
-import "github.com/gorilla/websocket"
+import (
+	"fmt"
+	"github.com/gorilla/websocket"
+)
 
 // Client
 type client struct {
@@ -12,8 +14,11 @@ type client struct {
 
 func (c *client) read() {
 	for {
-		if _, msg, err := c.socket.ReadMessage(); err != nil {
+		if _, msg, err := c.socket.ReadMessage(); err == nil {
 			c.room.forward <- msg
+			//fmt.Printf("User says %s ", msg)
+			fmt.Printf("User says %v ", string(msg)) // Log user messages
+
 		} else {
 			break
 		}
